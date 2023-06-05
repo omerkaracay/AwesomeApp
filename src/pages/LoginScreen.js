@@ -18,6 +18,41 @@ export default function LoginScreen() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
+    const [hidePassword, setHidePassword] = useState(false)
+    let isCorrect = true
+    function LoginRequest(){
+        switch(username){
+            case "omerk":
+            if (password === "1234omer"){
+                isCorrect = true
+            }
+              
+                break;
+
+            case "senem":
+                if (password === "1234senem"){
+                    isCorrect = true
+                }
+                break;
+            case "serhat":
+                if (password === "1234senem"){
+                    isCorrect = true
+                }
+                break;
+
+            case "ali":
+                if (password === "1234ali"){
+                    isCorrect = true
+                }
+                break;
+            default:
+                // kullanıcı bulunamadı
+        }
+        if (isCorrect){
+            setIsLogin(true) 
+        } else {setIsLogin (false)}
+    }
+
     return(
         <SafeAreaView
             style={{
@@ -80,22 +115,32 @@ export default function LoginScreen() {
                                 }}/>
 
                             {/* password input */}
+                            <View style={{
+                                flexDirection: 'row' ,                                    
+                                justifyContent: 'space-between',
+                                borderWidth: 1,
+                                borderColor: "#bbbcbe",
+                                width: "100%",
+                                borderRadius: 20,
+                                paddingLeft: 20,
+
+                                }}>
                             <TextInput
                                 value={password}
                                 onChangeText={setPassword}
                                 placeholder={"Password"}
+                                secureTextEntry = {hidePassword}
                                 style={{
-                                    borderWidth: 1,
-                                    borderColor: "#bbbcbe",
-                                    width: "100%",
-                                    borderRadius: 20,
-                                    paddingLeft: 20,
-                                }}/>
 
+                                }}/>
+                                <TouchableOpacity onPress={()=> setHidePassword(!hidePassword)}>
+                                <Image style={{width:40, height:40}} source={require('./../assets/images/user-img.png')} />
+                                </TouchableOpacity>
+                                </View>
                             {/* login button */}
                             <TouchableOpacity
                                 onPress={() => {
-                                    setIsLogin(true)
+                                    LoginRequest()
                                 }}
                                 style={{
                                     width: "100%",

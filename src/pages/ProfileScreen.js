@@ -40,7 +40,7 @@ export default function ProfileScreen() {
                         fontWeight: "bold",
                     }}>
 
-                    Ömer Faruk KÖSE
+                    Ömer Karaçay
 
                 </Text>
 
