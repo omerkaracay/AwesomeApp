@@ -16,6 +16,7 @@ export default function Router() {
   const Tab = createBottomTabNavigator();
 
   let screenOptions = {
+    headerShown: false,
     tabBarStyle: {
       backgroundColor: 'white',
       height: 50,
